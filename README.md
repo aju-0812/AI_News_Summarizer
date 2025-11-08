@@ -1,22 +1,3 @@
-<br />
-<div align="center">  
-  <img src="https://github.com/Oxlac/AI-News-Summariser/assets/73121234/35981902-47c3-4143-ad88-6ff1100e9c64" alt="Logo" width="200" height="200">
-  <h3 align="center">AI-News-Summariser</h3>
-  <p align="center">
-    A tool for automatically summarizing news articles using artificial intelligence.
-    <br />
-    <a href="https://aisummariser.oxlac.com">Visit the Website »</a>
-    <br />
-    <br />
-    <a href="https://www.aadinagarajan.com/#contact">Contact Developer</a>
-    ·
-    <a href="https://github.com/Oxlac/AI-News-Summariser/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/Oxlac/AI-News-Summariser/issues">Request Feature</a>
-    .
-    <a href="https://discord.gg/x3ba4sTzgd">Discord Support</a>
-  </p>
-</div>
 
 ## About The Project
 
