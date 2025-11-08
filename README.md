@@ -49,7 +49,7 @@ AI-News-Summariser can be installed and used on various platforms. Follow the st
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/Oxlac/AI-News-Summariser.git
+   git clone https://github.com/aju-0812/AI_News_Summarizer.git
    ```
 2. Install Requirements
    ```sh
