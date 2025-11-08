@@ -76,11 +76,4 @@ Distributed under the MIT License. See LICENSE.txt for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Contact
-Your Name - [@Oxlac_](https://twitter.com/Oxlac_) - contact@oxlac.com
 
-Discord Server - [https://discord.gg/2YdnSGHdET](https://discord.gg/2YdnSGHdET)
-
-Project Link: [https://github.com/Oxlac/AI-News-Summariser](https://github.com/oxlac/mr.dm)
-
-Developer: [Aadityaa Nagarajan](https://aadinagarajan.com)
