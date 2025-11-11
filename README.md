@@ -49,25 +49,37 @@ To simplify news consumption and avoid information overload by providing **quick
 
 ## 🔄 Workflow
 
-User pastes news URL
-↓
-Article is downloaded + parsed
-↓
-Summary + Sentiment generated
-↓
-Credibility score calculated
-↓
-UI displays:
-• Summary
-• Sentiment
-• Fake/Real Label
-• Breaking News
-• Trends
-• Market Dashboard
-• Market Analysis Charts
+1. User enters or pastes a news article URL in the website.
 
-yaml
-Copy code
+2. The system verifies whether the URL is valid and the article can be accessed.
+
+3. The article content is downloaded and parsed using Newspaper3k.
+
+4. NLP processing is performed:
+      - Text is tokenized and summarized.
+      - Sentiment (positive / negative / neutral) is detected.
+      - Fake news credibility score is calculated based on domain and text patterns.
+
+5. The summarized output is displayed to the user along with:
+      - Sentiment result
+      - Fake news credibility score
+      - Author and publication details
+
+6. Meanwhile, the homepage also fetches:
+      - Breaking news (Google News RSS)
+      - Trending search topics (PyTrends / fallback keyword extraction)
+      - Global market snapshot (Yahoo Finance API)
+
+7. When a user selects a market index:
+      - Historical data is retrieved.
+      - Price Chart and RSI (Relative Strength Index) are plotted using Plotly.js.
+
+8. Final UI shows:
+      → Summary + Sentiment
+      → Breaking News Feed
+      → Trending Topics
+      → Market Dashboard + Financial Graphs
+
 
 ---
 
@@ -75,23 +87,22 @@ Copy code
 
 AI-News-Summarizer/
 │
-├── app.py # Main Flask app
-├── templates/ # HTML templates
-│ ├── index.html # Homepage + summarizer
-│ ├── news.html # Category news
-│ ├── markets.html # Market dashboard
-│ └── analysis.html # Price & RSI chart page
+├── app.py                     # Main Flask backend and routing logic
 │
-├── static/
-│ └── neon.css # UI styling
+├── templates/                 # Frontend HTML Templates (Jinja2)
+│   ├── base.html              # Main layout / navigation
+│   ├── index.html             # Homepage + Summarizer UI
+│   ├── news.html              # Category-wise news display page
+│   ├── markets.html           # Global market dashboard interface
+│   └── analysis.html          # Price + RSI interactive chart page
 │
-├── requirements.txt # Python dependencies
-└── README.md # Documentation
+├── static/                    # Static frontend assets
+│   └── neon.css               # Dark theme + glowing neon UI styling
+│
+├── requirements.txt           # Python dependencies
+│
+└── README.md                  # Documentation
 
-yaml
-Copy code
-
----
 
 ## ⚙️ Setup & Installation
 
@@ -127,4 +138,5 @@ Mobile App (React Native / Flutter)
 🙌 Credits
 Developed by Ajendra
 Neon UI + Market Visualization + Real-Time Intelligence Engine
+
 
