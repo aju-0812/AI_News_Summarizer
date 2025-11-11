@@ -1,93 +1,130 @@
-<br />
-<div align="center">  
-  <img src="https://github.com/Oxlac/AI-News-Summariser/assets/73121234/35981902-47c3-4143-ad88-6ff1100e9c64" alt="Logo" width="200" height="200">
-  <h3 align="center">AI-News-Summariser</h3>
-  <p align="center">
-    A tool for automatically summarizing news articles using artificial intelligence.
-    <br />
-    <br />
-    <a href="https://github.com/Oxlac/AI-News-Summariser/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/Oxlac/AI-News-Summariser/issues">Request Feature</a>
-  </p>
-</div>
+# ⚡ AI News Summarizer (Neon Black Edition)
 
-## About The Project
+A smart and fast **AI-powered news summarization web app** that helps you stay informed without spending time reading long articles.  
+Just **paste a news URL**, and the system instantly provides:
 
-![AI-News-Summariser Screen Shot](image.png)
+- A **concise summary**
+- **Sentiment analysis** (Happy / Sad / Neutral)
+- **Fake news credibility score**
+- **Breaking news feed**
+- **Trending topics**
+- **Global market dashboard**
+- **Interactive market analysis charts (Price + RSI)**
 
-AI-News-Summariser is a tool designed to automatically generate concise summaries of news articles using artificial intelligence. Stay informed without spending too much time reading lengthy articles.
+---
 
->[!CAUTION]
->Ensure that you use this tool responsibly. Respect the copyrights and terms of use of the news sources.
+## 🎯 Project Goal
+To simplify news consumption and avoid information overload by providing **quick insights**, **credibility checks**, and **market context** — all in one elegant dashboard.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+---
 
-### Features
-* Automatic summarization of news articles.
-* Support for multiple news sources.
-* Easily accessible web interface.
-Export summarized content for offline reading.
+## 🧠 Features
 
-### Built With
-* Python
-* Newspaper3k
-* Flask
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+| Feature | Description |
+|--------|-------------|
+| 📝 **AI Article Summarizer** | Extracts and summarizes article content automatically |
+| 😊 **Sentiment Analysis** | Detects emotional tone of the news |
+| ❗ **Fake News Detection** | Scores credibility using domain + text heuristics |
+| 🔥 **Breaking News Feed** | Real-time news headlines with context |
+| 📈 **Market Dashboard** | NIFTY 50, SENSEX, NASDAQ, S&P 500, Gold, Crude Oil, Bitcoin |
+| 📊 **Advanced Financial Analysis** | Price trend graphs + **RSI(14)** indicator |
+| 📡 **Trending Topics** | Google Trends or automatic keyword extraction |
+| 🖥 **Neon Cyber UI** | Dark aesthetic with glowing accents (Gen Z + Tech vibes) |
 
-## Getting Started
-AI-News-Summariser can be installed and used on various platforms. Follow the steps below to get started.
+---
 
+## 🛠 Tech Stack
 
-### Installation
+| Layer | Technology |
+|------|------------|
+| **Frontend** | HTML, CSS (Neon UI), Plotly.js |
+| **Backend** | Flask (Python) |
+| **News Parsing** | Newspaper3k, Requests |
+| **NLP** | NLTK (punkt), TextBlob |
+| **Fake News Logic** | Custom heuristic scoring |
+| **Trends Data** | Google Trends API (pytrends) *(optional fallback included)* |
+| **Finance Data** | Yahoo Finance API (yfinance) |
 
-1. Clone the repo
-   ```sh
-   git clone https://github.com/Oxlac/AI-News-Summariser.git
-   ```
-2. Install Requirements
-   ```sh
-    pip install -r requirements.txt
-   ```
-3. Run the app
-   ```sh
-    python app.py
-   ```
+---
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+## 🔄 Workflow
 
-## Future features and improvements
+User pastes news URL
+↓
+Article is downloaded + parsed
+↓
+Summary + Sentiment generated
+↓
+Credibility score calculated
+↓
+UI displays:
+• Summary
+• Sentiment
+• Fake/Real Label
+• Breaking News
+• Trends
+• Market Dashboard
+• Market Analysis Charts
 
-- [ ] Customize summarization preferences.
-- [ ] Tackling corner cases where some news articles won't be parsed properly.
-- [ ] Customizable summarization algorithms.
-- [ ] User accounts and preferences.
-- [ ] Mobile app version.
-- [ ] Improvements in summarization accuracy.
+yaml
+Copy code
 
-See the [open issues](https://github.com/oxlac/AI-News-Summariser/issues) for a full list of proposed features and known issues.
+---
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+## 📂 Project Structure
 
-## Contributing
-Contributions are what makes the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+AI-News-Summarizer/
+│
+├── app.py # Main Flask app
+├── templates/ # HTML templates
+│ ├── index.html # Homepage + summarizer
+│ ├── news.html # Category news
+│ ├── markets.html # Market dashboard
+│ └── analysis.html # Price & RSI chart page
+│
+├── static/
+│ └── neon.css # UI styling
+│
+├── requirements.txt # Python dependencies
+└── README.md # Documentation
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
+yaml
+Copy code
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Ensure that your code passes the ruff linter. If it does not pass view the errors and fix them.
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+---
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+## ⚙️ Setup & Installation
 
-## License
-Distributed under the MIT License. See LICENSE.txt for more information.
+```bash
+git clone <your-repo-url>
+cd AI-News-Summarizer
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+# Create virtual environment
+python -m venv .venv
+source .venv/bin/activate   # (Windows: .venv\Scripts\activate)
 
-## Contact
-Project Link: [https://github.com/Oxlac/AI-News-Summariser](https://github.com/Oxlac/AI-News-Summariser)
+# Install requirements
+pip install -r requirements.txt
+
+# Run server
+python app.py
+Then open:
+
+cpp
+Copy code
+http://127.0.0.1:5000
+🚀 Future Enhancements
+Deep Learning-based summarization (T5 / BART)
+
+More advanced fake news classifiers (BERT-based)
+
+Multi-language summarization
+
+User profiles + bookmark history
+
+Mobile App (React Native / Flutter)
+
+🙌 Credits
+Developed by Ajendra
+Neon UI + Market Visualization + Real-Time Intelligence Engine
+
