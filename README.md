@@ -107,7 +107,7 @@ AI-News-Summarizer/
 ## ⚙️ Setup & Installation
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/aju-0812/AI_News_Summarizer.git
 cd AI-News-Summarizer
 
 # Create virtual environment
@@ -138,5 +138,6 @@ Mobile App (React Native / Flutter)
 🙌 Credits
 Developed by Ajendra
 Neon UI + Market Visualization + Real-Time Intelligence Engine
+
 
 
