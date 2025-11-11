@@ -83,28 +83,6 @@ To simplify news consumption and avoid information overload by providing **quick
 
 ---
 
-## 📂 Project Structure
-
-AI-News-Summarizer/
-│
-├─ app.py                      # Flask app & routes
-│
-├─ templates/                  # Jinja2 templates
-│  ├─ base.html                # Layout & nav
-│  ├─ index.html               # Summarizer + widgets
-│  ├─ news.html                # Category news
-│  ├─ markets.html             # Market dashboard + sparklines
-│  └─ analysis.html            # Price + RSI charts (Plotly)
-│
-├─ static/
-│  └─ neon.css                 # Neon dark theme styles
-│
-├─ requirements.txt            # Python deps
-└─ README.md                   # Documentation
-
-
-
-
 ## ⚙️ Setup & Installation
 
 ```bash
@@ -139,6 +117,7 @@ Mobile App (React Native / Flutter)
 🙌 Credits
 Developed by Ajendra
 Neon UI + Market Visualization + Real-Time Intelligence Engine
+
 
 
 
