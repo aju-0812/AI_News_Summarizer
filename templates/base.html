@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI News Summarizer</title>
+  <link rel="stylesheet" href="/static/neon.css" />
+</head>
+<body>
+<header class="nav">
+  <div class="brand">⚡ AI News</div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/news/technology">Tech</a>
+    <a href="/news/india">India</a>
+    <a href="/news/world">World</a>
+    <a href="/news/finance">Finance</a>
+    <a href="/markets">Markets</a>
+  </nav>
+</header>
+<main class="container">
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="flash">{{ messages[0] }}</div>
+    {% endif %}
+  {% endwith %}
+  {% block content %}{% endblock %}
+</main>
+<footer class="footer">Built with Flask • Neon Tech Theme</footer>
+</body>
+</html>

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card span2">
+  <h2>{{ name }} — Analysis</h2>
+  {% if dates and closes %}
+  <div id="chart" style="height:420px"></div>
+  <div id="rsi" style="height:180px;margin-top:14px"></div>
+  {% else %}
+  <p class="muted">No data available.</p>
+  {% endif %}
+  <p class="muted">Range: 6 months • Data via Yahoo Finance</p>
+</div>
+
+<script src="https://cdn.plot.ly/plotly-2.30.1.min.js"></script>
+<script>
+  const dates = {{ dates|tojson }};
+  const closes = {{ closes|tojson }};
+  const rsi = {{ rsi|tojson }};
+
+  // Price line + Volume not shown (kept minimal). Add later if needed.
+  const priceTrace = {
+    x: dates,
+    y: closes,
+    type: 'scatter',
+    mode: 'lines',
+    line: { width: 2 },
+    name: '{{ name }}'
+  };
+
+  const layoutTop = {
+    margin: {l:40,r:20,t:10,b:20},
+    paper_bgcolor: 'rgba(0,0,0,0)',
+    plot_bgcolor: 'rgba(0,0,0,0)',
+    xaxis: { showgrid: false, color: '#a0a9c0' },
+    yaxis: { showgrid: false, color: '#a0a9c0' },
+  };
+
+  Plotly.newPlot('chart', [priceTrace], layoutTop, {displayModeBar:false, responsive:true});
+
+  const rsiTrace = {
+    x: dates,
+    y: rsi,
+    type: 'scatter',
+    mode: 'lines',
+    line: { width: 2 },
+    name: 'RSI(14)'
+  };
+
+  const rsiLayout = {
+    margin: {l:40,r:20,t:10,b:30},
+    paper_bgcolor: 'rgba(0,0,0,0)',
+    plot_bgcolor: 'rgba(0,0,0,0)',
+    xaxis: { showgrid: false, color: '#a0a9c0' },
+    yaxis: { showgrid: false, color: '#a0a9c0', range:[0,100] },
+    shapes: [
+      { type:'line', x0:dates[0], x1:dates[dates.length-1], y0:70, y1:70, line:{dash:'dot',width:1} },
+      { type:'line', x0:dates[0], x1:dates[dates.length-1], y0:30, y1:30, line:{dash:'dot',width:1} },
+    ]
+  };
+
+  Plotly.newPlot('rsi', [rsiTrace], rsiLayout, {displayModeBar:false, responsive:true});
+</script>
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="grid">
+  <div class="card span2">
+    <h2>Summarize an Article</h2>
+    <form method="POST" class="row">
+      <input type="url" name="url" placeholder="Paste news article URL..." required />
+      <button class="btn">Summarize</button>
+    </form>
+
+    {% if title %}
+      <div class="article">
+        {% if top_image %}<img src="{{ top_image }}" class="hero" alt="article image" />{% endif %}
+        <h3>{{ title }}</h3>
+        <div class="meta">By {{ authors }} • {{ publish_date }}</div>
+        <p>{{ summary }}</p>
+        <div class="pill">Sentiment: {{ sentiment }}</div>
+        <div class="pill">Credibility: {{ fake_label }} ({{ fake_score }} / 100)</div>
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="card">
+    <h2>🔥 Breaking News</h2>
+    <ul class="news-cards">
+      {% for n in breaking_news %}
+      <li class="news-card">
+  <div class="news-content">
+    <a href="{{ n.link }}" target="_blank" class="news-title">{{ n.title }}</a>
+    {% if n.summary %}<p class="news-summary">{{ n.summary }}</p>{% endif %}
+  </div>
+</li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>📈 Trends</h2>
+    {% if trends and trends|length > 0 %}
+      <ul class="list">
+        {% for t in trends %}
+          <li><a href="/news/{{ t|lower|replace(' ', '%20') }}">{{ t }}</a></li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="muted">Trends unavailable (pytrends not installed).</p>
+    {% endif %}
+  </div>
+
+  <div class="card">
+    <h2>💹 Markets</h2>
+    <ul class="stats">
+      {% for name, v in market.items() %}
+        <li>
+          <span>{{ name }}</span>
+          <strong>
+            {% if v.price %}{{ '%.2f' % v.price }}{% else %}—{% endif %}
+            {% if v.chg %}
+              <span class="delta {{ 'up' if v.chg>0 else 'down' }}">
+                {{ '▲' if v.chg>0 else '▼' }} {{ '%.2f' % v.chg }} ({{ '%.2f' % v.pct }}%)
+              </span>
+            {% endif %}
+          </strong>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card span2">
+  <h2>Global Markets</h2>
+  <ul class="stats big">
+    {% for name, v in market.items() %}
+      <li class="market-item">
+        <div class="market-text">
+          <span><a href="/markets/analysis/{{ v.ticker }}">{{ name }}</a></span>
+          <strong>
+            {% if v.price %}{{ '%.2f' % v.price }}{% else %}—{% endif %}
+            {% if v.chg %}
+              <span class="delta {{ 'up' if v.chg>0 else 'down' }}">
+                {{ '▲' if v.chg>0 else '▼' }} {{ '%.2f' % v.chg }} ({{ '%.2f' % v.pct }}%)
+              </span>
+            {% endif %}
+          </strong>
+        </div>
+        {% if v.hist and v.hist|length > 1 %}
+        <svg class="spark" viewBox="0 0 100 30" preserveAspectRatio="none">
+          {% set minv = v.hist|min %}
+          {% set maxv = v.hist|max %}
+          {% set rng = (maxv - minv) if (maxv - minv) != 0 else 1 %}
+          <polyline fill="none" stroke="var(--neon)" stroke-width="2"
+            points="{% for p in v.hist %}{{ loop.index0 * (100/(v.hist|length - 1)) }},{{ 30 - ((p - minv) / rng * 30) }} {% endfor %}" />
+        </svg>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+  <p class="muted">Prices cached ~10 minutes. Data via Yahoo Finance.</p>
+</div>
+{% endblock %}

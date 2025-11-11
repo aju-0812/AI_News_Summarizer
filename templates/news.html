@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card span2">
+  <h2>{{ topic }} News</h2>
+  <ul class="list">
+    {% for a in articles %}
+      <li><a href="{{ a.link }}" target="_blank">{{ a.title }}</a>
+        {% if a.published %}<span class="muted"> • {{ a.published }}</span>{% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}
