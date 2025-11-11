@@ -87,11 +87,11 @@ To simplify news consumption and avoid information overload by providing **quick
 
 AI-News-Summarizer/
 │
-├── app.py                     # Main Flask backend and routing logic
+├── app.py                     # Main Flask backend & routing logic
 │
 ├── templates/                 # Frontend HTML Templates (Jinja2)
 │   ├── base.html              # Main layout / navigation
-│   ├── index.html             # Homepage + Summarizer UI
+│   ├── index.html             # Homepage + Article Summarizer UI
 │   ├── news.html              # Category-wise news display page
 │   ├── markets.html           # Global market dashboard interface
 │   └── analysis.html          # Price + RSI interactive chart page
@@ -101,7 +101,8 @@ AI-News-Summarizer/
 │
 ├── requirements.txt           # Python dependencies
 │
-└── README.md                  # Documentation
+└── README.md                  # Project documentation
+
 
 
 ## ⚙️ Setup & Installation
@@ -138,6 +139,7 @@ Mobile App (React Native / Flutter)
 🙌 Credits
 Developed by Ajendra
 Neon UI + Market Visualization + Real-Time Intelligence Engine
+
 
 
 
